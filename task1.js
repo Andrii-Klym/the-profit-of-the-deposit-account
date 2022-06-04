@@ -1,23 +1,19 @@
 let initialAmount = Number(prompt('Initial amount:', '')),
     numberOfYears = Number(prompt('Number of years:', '')),
-    percentage = Number(prompt('Percentage of year:', '')),
-    one = 1,
-    two = 2,
-    hundred = 100,
-    thousand = 1000;
+    percentage = Number(prompt('Percentage of year:', ''));
 
-let totalProfit = initialAmount * Math.pow(1 + percentage / hundred, numberOfYears) - initialAmount;
-let totalAmount = initialAmount * Math.pow(1 + percentage / hundred, numberOfYears);
+let totalProfit = initialAmount * Math.pow(1 + percentage / 100, numberOfYears) - initialAmount;
+let totalAmount = initialAmount * Math.pow(1 + percentage / 100, numberOfYears);
 
 
-if (initialAmount < thousand || initialAmount === '' || initialAmount === null || numberOfYears < one
+if (initialAmount < 1000 || initialAmount === '' || initialAmount === null || numberOfYears < 1
     || numberOfYears === '' || isInteger(numberOfYears) === false || numberOfYears === null 
-    || percentage > hundred || percentage === '' || percentage === null || isNaN(initialAmount) === true 
+    || percentage > 100 || percentage === '' || percentage === null || isNaN(initialAmount) === true 
     || isNaN(numberOfYears) === true || isNaN(percentage) === true) {
         alert('Invalid input data');
 } else {
     alert(`Initial amount: ${initialAmount}\nNumber of years: ${numberOfYears}\nPercentage of year: ${percentage}
-\r\nTotal Profit: ${totalProfit.toFixed(two)}\nTotal Amount: ${totalAmount.toFixed(two)}`);
+\r\nTotal Profit: ${totalProfit.toFixed(2)}\nTotal Amount: ${totalAmount.toFixed(2)}`);
 }
 
 function isInteger(num) {
